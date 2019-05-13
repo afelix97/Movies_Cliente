@@ -14,7 +14,7 @@ class CGenerales
 
 		try {
 			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL, "http://10.44.150.211:8080/tallerSpring/getUsuariosRest");
+			curl_setopt($ch, CURLOPT_URL, "http://10.44.150.211:8080/WS_Movies_CRUD/getUsuariosRest");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			$datosResponse = curl_exec($ch);
 			if ($datosResponse == "" || $datosResponse == null) {
@@ -54,7 +54,7 @@ class CGenerales
 			try 
 			{
 				$ch = curl_init();
-				curl_setopt($ch, CURLOPT_URL, "http://10.44.150.211:8080/tallerSpring/altaUsuarioPHP");
+				curl_setopt($ch, CURLOPT_URL, "http://10.44.150.211:8080/WS_Movies_CRUD/altaUsuarioPHP");
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 				curl_setopt($ch, CURLOPT_POST, true);// set post data to true
 				curl_setopt($ch, CURLOPT_POSTFIELDS,$parametros);
@@ -94,7 +94,7 @@ class CGenerales
 			try 
 			{
 				$ch = curl_init();
-				curl_setopt($ch, CURLOPT_URL, "http://10.44.150.211:8080/tallerSpring/destroyUsuarioPHP");
+				curl_setopt($ch, CURLOPT_URL, "http://10.44.150.211:8080/WS_Movies_CRUD/destroyUsuarioPHP");
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 				curl_setopt($ch, CURLOPT_POST, true);// set post data to true
 				curl_setopt($ch, CURLOPT_POSTFIELDS,$parametros);
@@ -133,7 +133,7 @@ class CGenerales
 			try 
 			{
 				$ch = curl_init();
-				curl_setopt($ch, CURLOPT_URL, "http://10.44.150.211:8080/tallerSpring/editarUsuarioPHP");
+				curl_setopt($ch, CURLOPT_URL, "http://10.44.150.211:8080/WS_Movies_CRUD/editarUsuarioPHP");
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 				curl_setopt($ch, CURLOPT_POST, true);// set post data to true
 				curl_setopt($ch, CURLOPT_POSTFIELDS,$parametros);
