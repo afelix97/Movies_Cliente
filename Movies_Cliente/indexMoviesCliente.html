@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Cliente Movies</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="css/bootstrap.4.1.0.min.css" rel="stylesheet"/>
+</head>
+<body>
+	<div class="container">
+ <!-- Modal -->
+<div class="modal fade" id="modalEditarUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Actualizacion de Datos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+	<form class="form" id="formActualizar">
+      <div class="modal-body">
+        	<div class="form-group row">
+				<label class="col-sm-2 col-form-label"></label >
+				<div class="col-sm-10">
+					<input type="text" id="idModal" class="form-control" name="idModal" required=""/>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Nombre: </label >
+				<div class="col-sm-10">
+					<input type="text" id="nombreModal" class="form-control" name="nombreModal" maxlength="50" required=""/>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Apellido: </label >
+				<div class="col-sm-10">
+					<input type="text" id="apellidoModal"  class="form-control" name="apellidoModal" maxlength="50" required=""/>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">nss: </label >
+				<div class="col-sm-10">
+					<input type="numeric" id="nssModal" class="form-control" name="nssModal"  maxlength="11" minlength="11" required=""/>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">curp: </label >
+				<div class="col-sm-10">
+					<input type="text" id="curpModal" class="form-control" name="curpModal"  maxlength="18" minlength="18" required=""/>
+				</div>
+			</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <input type="submit" class="btn btn-outline-primary" value="Actualizar" />
+      </div>
+	</form>
+    </div>
+  </div>
+</div>
+ <!-- Modal -->
+<div class="modal fade" id="modalEliminarUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">¿Seguro Que Desea Eliminar Este Usuario?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+	<form class="form" id="formEliminar">
+      <div class="modal-body">
+        	<div class="form-group row">
+				<label class="col-sm-2 col-form-label"></label >
+				<div class="col-sm-10">
+					<input type="text" id="idModalEliminar" class="form-control" name="idModalEliminar"/>
+				</div>
+			</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <input type="submit" class="btn btn-outline-danger" value="Eliminar" />
+      </div>
+	</form>
+    </div>
+  </div>
+</div>
+<br>
+<div class="container border">
+<br>
+	<div class="row">
+		<div class="col-md-10 text-center">
+			<h1 id="lblTitulo">Usuarios</h1>
+		</div>
+		<div class="col-md-2">
+			<button id="btnNuevo" class="btn btn-outline-success ">Nuevo +</button>
+		</div>
+	</div>
+	<div id="respuesta"></div>
+	<br>
+	<form class="form" id="formAInsert" method="POST">
+		<div class="form-group row">
+			<div class="col-md-2"></div>
+			<label class="col-sm-2 col-form-label">Nombre: </label >
+			<div class="col-sm-6">
+				<input type="text"  class="form-control" id="nombre" name="nombre" maxlength="50" autocomplete="off" required=""/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-md-2"></div>
+			<label class="col-sm-2 col-form-label">Apellido: </label >
+			<div class="col-sm-6">
+				<input type="text"  class="form-control" id="apellido" name="apellido"  maxlength="50" autocomplete="off" required=""/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-md-2"></div>
+			<label class="col-sm-2 col-form-label">nss: </label >
+			<div class="col-sm-6">
+				<input type="text"  class="form-control" id="nss" name="nss" maxlength="11" minlength="11" autocomplete="off" required=""/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-md-2"></div>
+			<label class="col-sm-2 col-form-label">curp: </label >
+			<div class="col-sm-6">
+				<input type="text"  class="form-control" id="curp" name="curp" maxlength="18" minlength="18" autocomplete="off" required="" />
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-md-4"></div>
+			<div class="col-md-2">
+				<input type="button" id="btnCancelar" class="btn btn-outline-secondary"  value="Cerrar"/>
+			</div>
+			<div class="col-md-2">
+				<input type="submit" id="btnGuardar" class="btn btn-outline-success"  value="Guardar"/>
+			</div>
+		</div>
+	</form>
+</div>
+<br>
+		<div class="row">
+			<table class="table table-bordered" id="tablaUsuarios">
+				<thead  class="thead-dark">
+    				<tr class="text-center">
+						<th>#</th>
+						<th>Nombre</th>
+						<th>nss</th>
+						<th>curp</th>
+						<th>Accion</th>
+					</tr>
+				</thead>
+  				<tbody class="text-center" id="datosTabla">
+						
+ 				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery.3.1.js"></script>
+	<script src="js/bootstrap.4.1.1.min.js"></script>
+	<script src="js/Movies_Cliente.js"></script>
+</html>
